@@ -1,0 +1,4 @@
+covidstaging
+| where country_region in (countryselected)
+| where S_updated == dateselected
+| project longitude, latitude, S_confirmed, iif(admin_region_2 !='', admin_region_2, iif(admin_region_1 == '', country_region, admin_region_1)) 

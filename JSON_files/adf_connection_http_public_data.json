@@ -1,0 +1,25 @@
+{
+    "name": "COVID_DATA_TRIGGER",
+    "properties": {
+        "annotations": [],
+        "runtimeState": "Started",
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "COVID_DATA",
+                    "type": "PipelineReference"
+                }
+            }
+        ],
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Day",
+                "interval": 1,
+                "startTime": "2020-06-27T20:00:00Z",
+                "endTime": "2020-12-31T20:00:00Z",
+                "timeZone": "UTC"
+            }
+        }
+    }
+}

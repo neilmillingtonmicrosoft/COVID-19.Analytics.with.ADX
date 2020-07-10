@@ -1,0 +1,564 @@
+ "name": "COVID_DATA",
+    "properties": {
+        "activities": [
+            {
+                "name": "Copy COVID data to ADLS",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "DelimitedTextSource",
+                        "storeSettings": {
+                            "type": "HttpReadSettings",
+                            "maxConcurrentConnections": 8,
+                            "requestMethod": "GET",
+                            "requestTimeout": ""
+                        },
+                        "formatSettings": {
+                            "type": "DelimitedTextReadSettings"
+                        }
+                    },
+                    "sink": {
+                        "type": "DelimitedTextSink",
+                        "storeSettings": {
+                            "type": "AzureBlobFSWriteSettings",
+                            "maxConcurrentConnections": 4
+                        },
+                        "formatSettings": {
+                            "type": "DelimitedTextWriteSettings",
+                            "quoteAllText": true,
+                            "fileExtension": ".txt"
+                        }
+                    },
+                    "enableStaging": true,
+                    "stagingSettings": {
+                        "linkedServiceName": {
+                            "referenceName": "AzureStagingArea",
+                            "type": "LinkedServiceReference"
+                        },
+                        "path": "stagingzone",
+                        "enableCompression": true
+                    },
+                    "parallelCopies": 4,
+                    "enableSkipIncompatibleRow": true,
+                    "logStorageSettings": {
+                        "linkedServiceName": {
+                            "referenceName": "adlslinkedservice",
+                            "type": "LinkedServiceReference"
+                        },
+                        "path": "loggingzone"
+                    },
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "mappings": [
+                            {
+                                "source": {
+                                    "name": "id",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "id",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "updated",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "updated",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "confirmed",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "confirmed",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "confirmed_change",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "confirmed_change",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "deaths",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "deaths",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "deaths_change",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "deaths_change",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "recovered",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "recovered",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "recovered_change",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "recovered_change",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "latitude",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "latitude",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "longitude",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "longitude",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "iso2",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "iso2",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "iso3",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "iso3",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "country_region",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "country_region",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "admin_region_1",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "admin_region_1",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "iso_subdivision",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "iso_subdivision",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "admin_region_2",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "admin_region_2",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "load_time",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "load_time",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                }
+                            }
+                        ],
+                        "typeConversion": true,
+                        "typeConversionSettings": {
+                            "allowDataTruncation": true,
+                            "treatBooleanAsNumber": false
+                        }
+                    }
+                },
+                "inputs": [
+                    {
+                        "referenceName": "csvsource",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "csvsink",
+                        "type": "DatasetReference"
+                    }
+                ]
+            },
+            {
+                "name": "Import Daily file to ADX",
+                "type": "Copy",
+                "dependsOn": [
+                    {
+                        "activity": "ADX - DDL drop extents",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "DelimitedTextSource",
+                        "storeSettings": {
+                            "type": "AzureBlobFSReadSettings",
+                            "recursive": true,
+                            "maxConcurrentConnections": 8,
+                            "enablePartitionDiscovery": false
+                        },
+                        "formatSettings": {
+                            "type": "DelimitedTextReadSettings",
+                            "skipLineCount": 0
+                        }
+                    },
+                    "sink": {
+                        "type": "AzureDataExplorerSink",
+                        "ingestionMappingName": "covidstagingdatamapping"
+                    },
+                    "enableStaging": false,
+                    "parallelCopies": 4,
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "mappings": [
+                            {
+                                "source": {
+                                    "name": "id",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "S_id",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "updated",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "S_updated",
+                                    "type": "DateTime"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "confirmed",
+                                    "type": "String"
+                                },
+                                "sink": {
+                                    "name": "S_confirmed",
+                                    "type": "Int32"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "confirmed_change",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "S_confirmed_change",
+                                    "type": "Int32"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "deaths",
+                                    "type": "String"
+                                },
+                                "sink": {
+                                    "name": "S_deaths",
+                                    "type": "Int32"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "deaths_change",
+                                    "type": "String"
+                                },
+                                "sink": {
+                                    "name": "S_deaths_change",
+                                    "type": "Int32"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "recovered",
+                                    "type": "String"
+                                },
+                                "sink": {
+                                    "name": "S_recovered",
+                                    "type": "Int32"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "recovered_change",
+                                    "type": "String"
+                                },
+                                "sink": {
+                                    "name": "S_recovered_change",
+                                    "type": "Int32"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "latitude",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "latitude",
+                                    "type": "Double"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "longitude",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "longitude",
+                                    "type": "Double"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "iso2",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "iso2",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "iso3",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "iso3",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "country_region",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "country_region",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "admin_region_1",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "admin_region_1",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "iso_subdivision",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "iso_subdivision",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "admin_region_2",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "admin_region_2",
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "load_time",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "load_time",
+                                    "type": "String"
+                                }
+                            }
+                        ],
+                        "typeConversion": true,
+                        "typeConversionSettings": {
+                            "allowDataTruncation": true,
+                            "treatBooleanAsNumber": false
+                        }
+                    }
+                },
+                "inputs": [
+                    {
+                        "referenceName": "csvsink",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "adxsink",
+                        "type": "DatasetReference"
+                    }
+                ]
+            },
+            {
+                "name": "ADX - DDL drop extents",
+                "type": "AzureDataExplorerCommand",
+                "dependsOn": [
+                    {
+                        "activity": "Copy COVID data to ADLS",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "command": ".drop extents from covidstaging",
+                    "commandTimeout": "00:20:00"
+                },
+                "linkedServiceName": {
+                    "referenceName": "demoadxsink",
+                    "type": "LinkedServiceReference"
+                }
+            }
+        ],
+        "annotations": []
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,152 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Clusters_demoadxclusteruk_name": {
+            "defaultValue": "demoadxclusteruk",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Kusto/Clusters",
+            "apiVersion": "2020-02-15",
+            "name": "[parameters('Clusters_demoadxclusteruk_name')]",
+            "location": "UK South",
+            "sku": {
+                "name": "Standard_D14_v2",
+                "tier": "Standard",
+                "capacity": 2
+            },
+            "identity": {
+                "principalId": " ** value removed ** ",
+                "tenantId": " ** value removed ** ",
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "trustedExternalTenants": [],
+                "enableDiskEncryption": false,
+                "enableStreamingIngest": false,
+                "enablePurge": false
+            }
+        },
+        {
+            "type": "Microsoft.Kusto/Clusters/Databases",
+            "apiVersion": "2020-02-15",
+            "name": "[concat(parameters('Clusters_demoadxclusteruk_name'), '/covid')]",
+            "location": "UK South",
+            "dependsOn": [
+                "[resourceId('Microsoft.Kusto/Clusters', parameters('Clusters_demoadxclusteruk_name'))]"
+            ],
+            "kind": "ReadWrite",
+            "properties": {
+                "softDeletePeriod": "P365D",
+                "hotCachePeriod": "P31D"
+            }
+        },
+        {
+            "type": "Microsoft.Kusto/Clusters/PrincipalAssignments",
+            "apiVersion": "2020-02-15",
+            "name": "[concat(parameters('Clusters_demoadxclusteruk_name'), ' ** value removed ** ')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Kusto/Clusters', parameters('Clusters_demoadxclusteruk_name'))]"
+            ],
+            "properties": {
+                "principalId": " ** value removed ** ",
+                "role": "AllDatabasesAdmin",
+                "principalType": "App",
+                "tenantId": " ** value removed ** "
+            }
+        },
+        {
+            "type": "Microsoft.Kusto/Clusters/PrincipalAssignments",
+            "apiVersion": "2020-02-15",
+            "name": "[concat(parameters('Clusters_demoadxclusteruk_name'), '/** value removed **')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Kusto/Clusters', parameters('Clusters_demoadxclusteruk_name'))]"
+            ],
+            "properties": {
+                "principalId": "5e5ad752-b3dd-466c-a761-45a06e17199f",
+                "role": "AllDatabasesAdmin",
+                "principalType": "App",
+                "tenantId": " ** value removed ** "
+            }
+        },
+        {
+            "type": "Microsoft.Kusto/Clusters/Databases/PrincipalAssignments",
+            "apiVersion": "2020-02-15",
+            "name": "[concat(parameters('Clusters_demoadxclusteruk_name'), '/covid/** value removed **')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Kusto/Clusters/Databases', parameters('Clusters_demoadxclusteruk_name'), 'covid')]",
+                "[resourceId('Microsoft.Kusto/Clusters', parameters('Clusters_demoadxclusteruk_name'))]"
+            ],
+            "properties": {
+                "principalId": " ** value removed ** ",
+                "role": "Ingestor",
+                "principalType": "App",
+                "tenantId": " ** value removed ** "
+            }
+        },
+        {
+            "type": "Microsoft.Kusto/Clusters/Databases/PrincipalAssignments",
+            "apiVersion": "2020-02-15",
+            "name": "[concat(parameters('Clusters_demoadxclusteruk_name'), '/covid/** value removed **')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Kusto/Clusters/Databases', parameters('Clusters_demoadxclusteruk_name'), 'covid')]",
+                "[resourceId('Microsoft.Kusto/Clusters', parameters('Clusters_demoadxclusteruk_name'))]"
+            ],
+            "properties": {
+                "principalId": "grloxton@microsoft.com",
+                "role": "Viewer",
+                "principalType": "User",
+                "tenantId": " ** value removed ** "
+            }
+        },
+        {
+            "type": "Microsoft.Kusto/Clusters/Databases/PrincipalAssignments",
+            "apiVersion": "2020-02-15",
+            "name": "[concat(parameters('Clusters_demoadxclusteruk_name'), '/covid/** value removed **')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Kusto/Clusters/Databases', parameters('Clusters_demoadxclusteruk_name'), 'covid')]",
+                "[resourceId('Microsoft.Kusto/Clusters', parameters('Clusters_demoadxclusteruk_name'))]"
+            ],
+            "properties": {
+                "principalId": "nemillin@microsoft.com",
+                "role": "Admin",
+                "principalType": "User",
+                "tenantId": " ** value removed ** "
+            }
+        },
+        {
+            "type": "Microsoft.Kusto/Clusters/Databases/PrincipalAssignments",
+            "apiVersion": "2020-02-15",
+            "name": "[concat(parameters('Clusters_demoadxclusteruk_name'), '/covid/** value removed **')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Kusto/Clusters/Databases', parameters('Clusters_demoadxclusteruk_name'), 'covid')]",
+                "[resourceId('Microsoft.Kusto/Clusters', parameters('Clusters_demoadxclusteruk_name'))]"
+            ],
+            "properties": {
+                "principalId": "5e5ad752-b3dd-466c-a761-45a06e17199f",
+                "role": "Ingestor",
+                "principalType": "App",
+                "tenantId": " ** value removed ** "
+            }
+        },
+        {
+            "type": "Microsoft.Kusto/Clusters/Databases/PrincipalAssignments",
+            "apiVersion": "2020-02-15",
+            "name": "[concat(parameters('Clusters_demoadxclusteruk_name'), '/covid/** value removed **')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Kusto/Clusters/Databases', parameters('Clusters_demoadxclusteruk_name'), 'covid')]",
+                "[resourceId('Microsoft.Kusto/Clusters', parameters('Clusters_demoadxclusteruk_name'))]"
+            ],
+            "properties": {
+                "principalId": "prda@microsoft.com",
+                "role": "Viewer",
+                "principalType": "User",
+                "tenantId": " ** value removed ** "
+            }
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+covidstaging
+| where country_region == 'Worldwide'
+| project   S_updated, S_confirmed, S_recovered, S_deaths
+| project-rename  Confirmed_Deaths = S_deaths, Confirmed_Infections = S_confirmed, Confirmed_Recoveries = S_recovered  

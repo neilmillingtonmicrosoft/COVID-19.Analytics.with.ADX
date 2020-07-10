@@ -1,0 +1,15 @@
+{
+    "name": "demoadxsink",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "annotations": [],
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://demoadxclusteruk.uksouth.kusto.windows.net",
+            "tenant": "  ** data removed ** ",
+            "servicePrincipalId": " ** data removed ** ",
+            "database": "covid",
+            "encryptedCredential": " ** data removed ** 
+        }
+    }
+}

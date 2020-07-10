@@ -1,0 +1,11 @@
+Release Notes - COVID-19 Analytics in Minutes with Azure Data Explorer( ADX ) 
+
+Release 1.0 - 10-07-2020 - First release (full refresh/load pipeline ) [COV-ADX]
+ 
+Author(s)
+= Neil M., Microsoft (UK)
+
+Credits and Acknowledgements
+= Gabi Lehner, Principal Program Manger, Microsoft
+= Rony Liderman, Principal Software Engineer, Microsoft
+

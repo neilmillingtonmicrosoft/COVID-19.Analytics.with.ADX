@@ -1,0 +1,8 @@
+covidstaging
+| where country_region != 'Worldwide'
+| where admin_region_1 ==''
+| where S_updated == dateselected
+| project country_region,  S_recovered
+| order by S_recovered desc 
+| project-rename Confirmed_recoveries = S_recovered 
+| take 20

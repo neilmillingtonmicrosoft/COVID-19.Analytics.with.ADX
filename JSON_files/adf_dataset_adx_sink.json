@@ -1,0 +1,16 @@
+{
+    "name": "adxsink",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "demoadxsink",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureDataExplorerTable",
+        "schema": [],
+        "typeProperties": {
+            "table": "covidstaging"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

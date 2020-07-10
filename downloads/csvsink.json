@@ -1,0 +1,97 @@
+{
+    "name": "csvsink",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "adlslinkedservice",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileName": "bing_covid-19_data.csv",
+                "folderPath": {
+                    "value": "@{concat('/' ,formatDateTime(utcnow(),'yyyy') ,'/' ,formatDateTime(utcnow(),'MM') ,'/' ,formatDateTime(utcnow(),'dd'),'/')}",
+                    "type": "Expression"
+                },
+                "fileSystem": "landingzone"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+        },
+        "schema": [
+            {
+                "name": "id",
+                "type": "String"
+            },
+            {
+                "name": "updated",
+                "type": "String"
+            },
+            {
+                "name": "confirmed",
+                "type": "String"
+            },
+            {
+                "name": "confirmed_change",
+                "type": "String"
+            },
+            {
+                "name": "deaths",
+                "type": "String"
+            },
+            {
+                "name": "deaths_change",
+                "type": "String"
+            },
+            {
+                "name": "recovered",
+                "type": "String"
+            },
+            {
+                "name": "recovered_change",
+                "type": "String"
+            },
+            {
+                "name": "latitude",
+                "type": "String"
+            },
+            {
+                "name": "longitude",
+                "type": "String"
+            },
+            {
+                "name": "iso2",
+                "type": "String"
+            },
+            {
+                "name": "iso3",
+                "type": "String"
+            },
+            {
+                "name": "country_region",
+                "type": "String"
+            },
+            {
+                "name": "admin_region_1",
+                "type": "String"
+            },
+            {
+                "name": "iso_subdivision",
+                "type": "String"
+            },
+            {
+                "name": "admin_region_2",
+                "type": "String"
+            },
+            {
+                "name": "load_time",
+                "type": "String"
+            }
+        ]
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

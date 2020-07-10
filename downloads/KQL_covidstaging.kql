@@ -1,0 +1,43 @@
+.drop table covidstaging;
+
+.create table covidstaging
+(
+S_id: string, 
+S_updated: datetime , 
+S_confirmed: int , 
+S_confirmed_change: int ,
+S_deaths: int , 
+S_deaths_change: int, 
+S_recovered: int, 
+S_recovered_change: int,
+latitude: string, 
+longitude: string, 
+iso2: string,
+iso3: string,
+country_region: string,  
+admin_region_1: string,
+iso_subdivision: string,
+admin_region_2: string,
+load_time: string 
+);
+
+.create-or-alter table covidstaging ingestion csv mapping   "covidstagingdatamapping"
+'['
+  ' {"column":"S_id", "DataType":"string", "Properties":{"Ordinal":"0"}},'
+  ' {"column":"S_updated", "DataType":"datetime", "Properties":{"Ordinal":"1"}},'
+  ' {"column":"S_confirmed", "DataType":"int", "Properties":{"Ordinal":"2"}},'
+  ' {"column":"S_confirmed_change", "DataType":"int", "Properties":{"Ordinal":"3"}},'
+  ' {"column":"S_deaths", "DataType":"int", "Properties":{"Ordinal":"4"}},'
+  ' {"column":"S_deaths_change", "DataType":"int", "Properties":{"Ordinal":"5"}},'
+  ' {"column":"S_recovered", "DataType":"int", "Properties":{"Ordinal":"6"}},'
+  ' {"column":"S_recovered_change", "DataType":"int", "Properties":{"Ordinal":"7"}},'
+  ' {"column":"latitude", "DataType":"string", "Properties":{"Ordinal":"8"}},'
+  ' {"column":"longitude", "DataType":"string", "Properties":{"Ordinal":"9"}},'
+  ' {"column":"iso2", "DataType":"string", "Properties":{"Ordinal":"10"}},'
+  ' {"column":"iso3", "DataType":"string", "Properties":{"Ordinal":"11"}},'
+  ' {"column":"country_region", "DataType":"string", "Properties":{"Ordinal":"12"}},'
+  ' {"column":"admin_region_1", "DataType":"string", "Properties":{"Ordinal":"13"}},'
+  ' {"column":"iso_subdivision", "DataType":"string", "Properties":{"Ordinal":"14"}},'
+  ' {"column":"admin_region_2", "DataType":"string", "Properties":{"Ordinal":"15"}},'
+  ' {"column":"load_time", "DataType":"string", "Properties":{"Ordinal":"16"}}'
+']';

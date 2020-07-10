@@ -1,0 +1,50 @@
+covidstaging
+| where country_region == 'Worldwide'
+| where S_confirmed > 0 
+| project S_updated, S_confirmed, S_confirmed_change
+
+covidstaging 
+| where country_region == 'New Zealand'
+
+//what is the covidstaging schema?
+.show table covidstaging
+
+// queries - Linechart - worlwide, all dates
+covidstaging
+| where country_region == 'Worldwide'
+| project   S_updated, S_confirmed, S_deaths, S_recovered
+| render linechart with (  title = "Worlwide COVID-19 Statistics")
+| project-rename Confirmed_Infections = S_confirmed, Confirmed_Recoveries = S_recovered, Confirmed_Deaths = S_deaths
+
+// queries - stacked area chart - country, latest date
+let maxDateTable = covidstaging | where country_region == 'Worldwide' |  order by S_updated desc | take 1 | project S_updated;
+covidstaging
+| join kind= inner  (maxDateTable) on $left.S_updated == $right.S_updated
+| where country_region != 'Worldwide'
+| where admin_region_1 ==''
+| project country_region, S_recovered, S_confirmed, S_deaths
+| order by S_confirmed desc
+| render stackedareachart with (  title = "Worlwide COVID-19 Statistics, Confirmed/ Recovered/ Deaths" , xcolumn = country_region)
+| project-rename Confirmed_Deaths = S_deaths, Confirmed_Infections = S_confirmed, Confirmed_Recoveries = S_recovered
+| take 20
+
+// queries - piechart - country, latest date, confirmed
+let maxDateTable = covidstaging | where country_region == 'Worldwide' |  order by S_updated desc | take 1 | project S_updated;
+covidstaging
+| join kind= inner  (maxDateTable) on $left.S_updated == $right.S_updated
+| where country_region != 'Worldwide'
+| where admin_region_1 ==''
+| project country_region,  S_confirmed 
+| order by S_confirmed desc
+| render piechart  with (  title = "Worlwide COVID-19 Statistics, Confirmed Infections" , xcolumn = country_region, legend = hidden)
+| project-rename Confirmed_Infections = S_confirmed 
+| take 20
+
+// queries - stacked area chart - country, latest date
+let maxDateTable = covidstaging | where country_region == 'United Kingdom' |  order by S_updated desc | take 1 | project S_updated;
+covidstaging
+| join kind= inner  (maxDateTable) on $left.S_updated == $right.S_updated
+| where country_region == 'United Kingdom'
+| project country_region,  S_deaths, latitude, longitude
+| order by S_deaths desc
+| project-rename Deaths = S_deaths

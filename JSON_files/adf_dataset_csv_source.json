@@ -1,0 +1,92 @@
+{
+    "name": "csvsource",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "Httplinkedservice",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "HttpServerLocation",
+                "relativeUrl": " /public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+        },
+        "schema": [
+            {
+                "name": "id",
+                "type": "String"
+            },
+            {
+                "name": "updated",
+                "type": "String"
+            },
+            {
+                "name": "confirmed",
+                "type": "String"
+            },
+            {
+                "name": "confirmed_change",
+                "type": "String"
+            },
+            {
+                "name": "deaths",
+                "type": "String"
+            },
+            {
+                "name": "deaths_change",
+                "type": "String"
+            },
+            {
+                "name": "recovered",
+                "type": "String"
+            },
+            {
+                "name": "recovered_change",
+                "type": "String"
+            },
+            {
+                "name": "latitude",
+                "type": "String"
+            },
+            {
+                "name": "longitude",
+                "type": "String"
+            },
+            {
+                "name": "iso2",
+                "type": "String"
+            },
+            {
+                "name": "iso3",
+                "type": "String"
+            },
+            {
+                "name": "country_region",
+                "type": "String"
+            },
+            {
+                "name": "admin_region_1",
+                "type": "String"
+            },
+            {
+                "name": "iso_subdivision",
+                "type": "String"
+            },
+            {
+                "name": "admin_region_2",
+                "type": "String"
+            },
+            {
+                "name": "load_time",
+                "type": "String"
+            }
+        ]
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
