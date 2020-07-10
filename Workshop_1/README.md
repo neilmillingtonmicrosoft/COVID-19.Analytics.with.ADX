@@ -55,11 +55,15 @@ The workshop is broken down into several logical units, as follows:
 
 Artifacts
 ---------
-This diagram shows the architecture that will be built [Architecture HLD](media/image1.png).
+This diagram shows the architecture that will be built:
 
-This diagram shows the Azure ADX Dashboard that will be built [ADX Dashboard](media/image2.png).
+![](/media/image1.png)
+
+This diagram shows the Azure ADX Dashboard that will be built:
+
+![](/media/image2.png)
 
 
 Method
 ------
-Open the lab document ""COVID-19 - Analytics in Minutes - Workshop 1.pdf" and work through each activity to complete the lab.
+Open the lab document "COVID-19 - Analytics in Minutes - Workshop 1.pdf" and work through each activity to complete the lab.
