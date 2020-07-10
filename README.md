@@ -144,14 +144,14 @@ Workshop 1: Architecture
 ------------------------
 The diagram below shows the high level architecture that will be built:
 
-[Architecture](media/image1.png)
+![Architecture](media/image1.png)
 
 
 Workshop 1: ADX Dashboard Visualisation
 ---------------------------------------
 The following ADX dashboard will be built:
 
-[ADX Dashboard](media/image2.png)
+![ADX Dashboard](media/image2.png)
 
 
 Workshop 2: COVID-19 Analytics in Minutes (incrmental/delta data refresh) ** NOT Released **
@@ -169,11 +169,11 @@ Workshop 2: Architecture
 ------------------------
 The diagram below shows the high level architecture that will be built:
 
-[Architecture](media/image1.png)
+![Architecture](media/image1.png)
 
 
 Workshop 2: ADX Dashboard Visualisation
 ---------------------------------------
 The following ADX dashboard will be built:
 
-[ADX Dashboard](media/image2.png)
+![ADX Dashboard](media/image2.png)
