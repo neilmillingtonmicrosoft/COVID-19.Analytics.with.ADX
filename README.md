@@ -8,7 +8,7 @@ Welcome to this Azure cloud-scale Analytics workshop(s)! The workshop is entitle
   - write KQL queries to query the data residing in the ADX datastore
   - build a dashboard visualisation for analysis of the ADX datastore
   
-The solution will be built using hands-on, step-by-step guided activities. This workshop is intended to be taken self-paced or via an
+The solution will be built using hands-on step-by-step guided activities. This workshop is intended to be taken self-paced or via an
 instructor-led event.
 
 This workshop is designed for data professionals who have a basic
@@ -33,7 +33,7 @@ anomalies, enhance customer experiences, monitor devices, and boost
 operational performance.
 
 The nature of ADX permits "what if" data wrangling over all data presented. 
-Additionally, it has the ability to visualise such analytics without the need for additional tooling or investment with built-in visualisations and the [ADX Dashboard] (https://docs.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
+Additionally, it has the ability to visualise such analytics without the need for additional tooling, or investment, with built-in visualisations and the [ADX Dashboard] (https://docs.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
 
 
 Purpose
@@ -124,7 +124,7 @@ The second workshop, "Workshop 2", will re-use the majority of artifacts from "W
 during each iteration rather than fully replacing it as with "Workshop 1".
 
 The architecture can easily be enhanced to include additional Azure
-services, such as, structured/relational datastores (SQL Server,
+services such as structured/relational datastores (SQL Server,
 PostgreSQL) or semi-structured/non-relational datastores (e.g. Cosmos
 DB).
 
@@ -137,21 +137,21 @@ Workshop 1: Summary
 Ingest a COVID-19 CSV format datafile from a public server to Azure. Using ADF, land this data to ADLS and then load into ADX. Replace all data currently residing in ADX. Use KQL to perform analysis on the data and build an ADX dashboard to visualise it.
 
 This solution architecture provides support for data ingestion for both
-structured and semi-structured data. Currently CSV data is used, but JSON, JSONL and Parquest files exist on the public repositories.  
+structured and semi-structured data. Currently CSV data is used, but JSON, JSONL and Parquet files exist on the public repositories.  
 
 
 Workshop 1: Architecture
 ------------------------
 The diagram below shows the high level architecture that will be built:
 
-![](/media/image1.png)
+![Architecture](media/image1.png)
 
 
 Workshop 1: ADX Dashboard Visualisation
 ---------------------------------------
 The following ADX dashboard will be built:
 
-![](/media/image2.png)
+![ADX Dashboard](media/image2.png)
 
 
 Workshop 2: COVID-19 Analytics in Minutes (incrmental/delta data refresh) ** NOT Released **
@@ -169,11 +169,11 @@ Workshop 2: Architecture
 ------------------------
 The diagram below shows the high level architecture that will be built:
 
-![](/media/image1.png)
+![Architecture](media/image1.png)
 
 
 Workshop 2: ADX Dashboard Visualisation
 ---------------------------------------
 The following ADX dashboard will be built:
 
-![](/media/image2.png)
+![ADX Dashboard](media/image2.png)

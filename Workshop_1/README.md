@@ -8,10 +8,9 @@ Workshop Summary
 ----------------
 
 Extract, via an HTTP request, a publically available COVID-19 dataset utilising Azure Data Factory
-(ADF). Land this file to Azure Data Lake - within a date driven hierarchy. Then ingest this file to
+(ADF). Land this file to Azure Data Lake - within a date driven hierarchy - then ingest this file to
 Azure Data Explorer (ADX). Once loaded, using KQL, perform "what if" analysis combined with in-situ visualisations.
-
-The final stage is to, using the new [ADX Dashboards](https://docs.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
+The final stage, using the new [ADX Dashboards](https://docs.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
 feature, create an enriched analytical dashboard permitting data wrangling. 
 
 This **README.MD** file explains how the lab is structured, what you
@@ -24,15 +23,15 @@ The workshop is broken down into several logical units, as follows:
 
 -   Activity 1: Azure Data Lake (ADLS)
 
-    -   Create this Azure services
+    -   Create this Azure service
 
 -   Activity 2: Azure Data Explorer (ADX)
 
-    -   Create this Azure services
+    -   Create this Azure service
 
 -   Activity 3: Data Factory (ADF)
 
-    -   Build this Azure services
+    -   Build this Azure service
 
 -   Activity 4: Security & Access
 
@@ -40,7 +39,7 @@ The workshop is broken down into several logical units, as follows:
 
 -   Activity 5: ADF Pipeline
 
-    -   Build an ADF pipeline
+    -   Build and schedule the ADF pipeline
 
 -   Activity 6: Analytics via KQL
 
@@ -55,13 +54,9 @@ The workshop is broken down into several logical units, as follows:
 
 Artifacts
 ---------
-This diagram shows the architecture that will be built:
+This diagram shows the architecture that will be built [Architecture HLD](media/image1.png).
 
-![](/media/image1.png)
-
-This diagram shows the Azure ADX Dashboard that will be built:
-
-![](/media/image2.png)
+This diagram shows the Azure ADX Dashboard that will be built [ADX Dashboard](media/image2.png).
 
 
 Method
