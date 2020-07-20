@@ -2,7 +2,7 @@ About this workshop
 ====================
 Welcome to this Azure cloud-scale Analytics workshop(s)! The workshop is entitled "COVID-19 - Analytics in Minutes" and, in it, you will build a working architecture solution to perform the following:
 
-  - connect to a publically hosted COVID-19 datasource
+  - connect to a publicly hosted COVID-19 datasource
   - ingest a dataset to a [date parameterised] staging area on Azure Data Lake (ADLS)
   - ingest this ADLS dataset to ADX
   - write KQL queries to query the data residing in the ADX datastore
@@ -33,7 +33,7 @@ anomalies, enhance customer experiences, monitor devices, and boost
 operational performance.
 
 The nature of ADX permits "what if" data wrangling over all data presented. 
-Additionally, it has the ability to visualise such analytics without the need for additional tooling, or investment, with built-in visualisations and the [ADX Dashboard] (https://docs.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
+Additionally, it can visualise such analytics without the need for additional tooling, or investment, with built-in visualisations and the [ADX Dashboard] (https://docs.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards)
 
 
 Purpose
